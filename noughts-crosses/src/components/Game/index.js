@@ -5,21 +5,21 @@ import  Square  from '../square';
 
 export const Game = () => {
     const [board, setBoard] = useState(Array(9).fill(null));
-    const [move, setMove] = useState(null);
+    // const [move, setMove] = useState(null);
 
-    const [xIsNext, setxIsNext] = useState(true);
+    const [xIsNext, setXIsNext] = useState(true);
 
 
    function handleClick(e){
 
         if(e.target.value === null){
             if(xIsNext === true){
-            setMove("x");
-            setxIsNext(false);
+            move = "X";
+            setXIsNext(false);
 
             }else {
-                setMove("o");
-                setxIsNext(true);
+                move = "O";
+                setXIsNext(true);
             }
         }else{
             alert("choose another square")
@@ -29,6 +29,6 @@ export const Game = () => {
         // else alert pick another square
     }
   return (
-   <Board handleClick={handleClick}/>
+   <Board handleClick={handleClick} move={move}/>
   )
 }
